@@ -1,0 +1,82 @@
+html {
+    /* Set the font-size so 1em == 10px (Assuming a default browser font-size of 16px) */
+    font: 62.5%/1.6em Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
+    color: #333;
+}
+
+body {
+    margin:0;
+    padding:0;
+}
+
+h2 {
+    margin:0;
+}
+
+.box {
+    border:1px solid black;
+    padding:0.5em;
+    border-radius: 1.231em;
+    line-height: 23px;
+    margin:0.5em;
+    font-size:1.3em;
+    overflow:auto;
+}
+
+#map, #press {
+    float:left;
+    overflow:auto;
+}
+
+#map {
+    height:60%;
+    width:60%;
+}
+
+#press {
+    width:35%;
+    height:620px;
+    overflow-y:scroll;
+}
+
+#controlbox {
+    width:94%;
+    padding:2em;
+}
+
+#mapbox {
+    width:100%;
+    height:600px;
+}
+
+.infowindow {
+    height:220px;
+    overflow:hidden;
+}
+
+.slider_container {
+    float:left;
+    width:1050px;
+    height:70px;
+}
+
+#chart_div {
+    height:55px;
+}
+
+#date_slider {width:1000px;}
+
+.playpause { 
+    background:url('/media/images/playpause.png');
+    height:18px;
+    width:18px;
+    display:block;
+    float:left;
+    position:relative;
+    top:53px;
+    left:-40px;
+}
+
+.playing { 
+    background:url('/media/images/playpause.png') top right;
+}

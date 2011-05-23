@@ -1,0 +1,47 @@
+upstream app_server_node {
+    server localhost:8080 fail_timeout=0;
+}
+
+server {
+    listen       82;
+    server_name  localhost;
+    
+    location /media {
+        access_log off;
+        alias [path]/frontend/media;
+        # expires 30d;
+    }
+    
+    
+   location /node/ {
+       # root   html;
+       index  index.html index.htm;
+       # rewrite ^(.*)\ (.*)$ $1$2 redirect;
+       gzip_static on;
+       # rewrite ^(.*)\%20(.*)$ $1$2;
+       default_type  text/html;
+       autoindex on;
+       root [path]/frontend/;
+       
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_set_header Host $http_host;
+       proxy_redirect off;
+
+       if (!-f $request_filename) {
+           proxy_pass http://app_server_node;
+           break;
+       }
+       
+       
+   }
+   location / {
+       # root   html;
+       index  index.html index.htm;
+       # rewrite ^(.*)\ (.*)$ $1$2 redirect;
+       gzip_static on;
+       # rewrite ^(.*)\%20(.*)$ $1$2;
+       default_type  text/html;
+       autoindex on;
+       root [path]/frontend/;
+   }
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="media/css/1010.css" />
+        <link rel="stylesheet" href="media/css/jquery-ui.css" />
+    </head>
+    <body>
+        <section id="controlbox" class="box">
+            <div class="slider_container">
+                <div id="chart_div"></div>
+                <form id="datepicker">
+                    <div id="date_slider"></div>
+                    Cumulative? <input type="checkbox" name="cumlative" id="cumlative">
+                </form>
+            </div>
+            <a class="playpause" href="#"></a>
+        </section>
+
+        <div id="map" class="box">
+            <h2>Signups <span class="signups_prefix">on</span> <span class="signups_date">[select date using slider]</span></h2>
+            <div id="mapbox"></div>
+        </div>
+        <div id="press" class="box">
+            <h2>News on <span class="signups_date">[select date using slider]</span></h2>
+            <div id="pressbox">
+            </div>
+        </div>
+       
+       
+       
+        <script type=text/tim class=template-infowindow>
+                    <div class=infowindow>
+                    <h3>{{ name }}</h3>
+                    <dl>
+                        <dt>Type</dt>
+                        <dd>{{ type }}</dd>
+                        <dt>Signed Up</dt>
+                        <dd>{{ signed_up_datetime }}</dd>
+                        <dt>URL</dt>
+                        <dd><a href="{{ url }}" target="_blank">{{ url }}</a></dd>
+                    </dl>
+                    </div>
+                </script>
+        <script type=text/tim class=template-news-placeholder>
+                    <li id="news-{{ cleaned_value }}"></li>
+        </script>
+
+        <script type=text/tim class=template-news-item>
+                    {{ title }}
+        </script>
+       
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script src="media/js/jquery.min.js"></script>
+        <script src="media/js/jquery-ui-1.8.13.custom.min.js"></script>
+        <script src="media/js/tim.min.js"></script>
+        <script src="media/js/clustering.js"></script>
+        <script src="media/js/1010.js"></script>
+    </body>
+</html>
