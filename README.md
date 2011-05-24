@@ -13,6 +13,7 @@ This is seen more as an interesting tool for inspecting some aspects of the camp
 * Redis stores all the data, using a `zset` for the date range lookups
 * node.js and various node modules provides the API
 * Google Maps and Chart API are used with for displaying the data.
+* tim (https://github.com/premasagar/tim)
 
 
 ## Comments and Disclaimer
