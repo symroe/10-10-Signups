@@ -1,6 +1,7 @@
 var gmap, markersArray, openInfowindow, markerCluster
 
 function setUp() {
+    localStorage.clear()
     markersArray = [];
     CENTER = new google.maps.LatLng(54.3843, -3);
     options = {
@@ -15,6 +16,11 @@ function setUp() {
 $('#cumlative').change(function() {
     // Refresh the slider position
     $('#date_slider').slider("value", $('#date_slider').slider("value"));
+    if ($(this).is(':checked')) {
+        $('.signups_prefix').html('up to')
+    } else {
+        $('.signups_prefix').html('on')
+    }
 })
 
 
@@ -54,11 +60,13 @@ function getNewsItem(v) {
     if (cached_item) {
         item = new Object();
         item.title = cached_item;
+        item.url = localStorage.getItem(v.cleaned_value+'-url')
         $('#news-'+v.cleaned_value).html(tim("template-news-item", item))
     } else {
         $.getJSON('/node/get_single/'+v.value, function(item) {
             $('#news-'+v.cleaned_value).html(tim("template-news-item", item))
             cached_item = localStorage.setItem(v.cleaned_value, item.title);
+            localStorage.setItem(v.cleaned_value+'-url', item.url);
         });        
     }
 }
