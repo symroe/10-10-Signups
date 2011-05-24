@@ -77,7 +77,7 @@ function updateNewsList(data) {
 
 function updateDate(timestamp) {
     var date = new Date(timestamp*1000);
-    $('.signups_date').html(date.getDate() + '/' + date.getMonth()+'/'+date.getFullYear());
+    $('.signups_date').html(date.getDate() + '/' + (date.getMonth()+1)+'/'+date.getFullYear());
 }
 
 function addMarker(key) {
